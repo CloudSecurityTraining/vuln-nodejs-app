@@ -17,3 +17,8 @@ jobs:
       - name: Code Security Analysis
         run: pip3 install semgrep && semgrep --max-lines-per-finding 0 --config auto --config "./.semgrep" --error --max-lines-per-finding 0
         shell: bash
+  deploy:
+      - uses: actions/checkout@v2
+      - name: Deploy
+        run: echo "Deploying..."
+        shell: bash
