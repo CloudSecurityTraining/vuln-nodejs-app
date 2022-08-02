@@ -21,8 +21,9 @@ jobs:
           # semgrep --max-lines-per-finding 0 --config "p/owasp-top-ten" --error -o ~/abc/ott.txt
           # semgrep --max-lines-per-finding 0 --config "p/nodejsscan" --error -o ~/abc/njsscan.txt
         shell: bash
-
-      - uses: actions/upload-artifact@v3
+  upload_results:
+    name: Upload Scan Results
+    - uses: actions/upload-artifact@v3
         with:
           name: scan-results
           path: ~/abc/
