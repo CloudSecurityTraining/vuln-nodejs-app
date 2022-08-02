@@ -15,7 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Code Security Analysis
-        run: pip3 install semgrep && semgrep --config "p/ci" --error
-        env: 
-          SEMGREP_RULES: .semgrep/
+        run: pip3 install semgrep && semgrep --config "./.semgrep" --error
         shell: bash
