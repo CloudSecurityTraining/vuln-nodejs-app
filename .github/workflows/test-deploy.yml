@@ -17,3 +17,14 @@ jobs:
       - name: Code Security Analysis
         run: pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "p/nodejsscan" --error
         shell: bash
+  deploy:
+    name: Deploy
+    needs: [dependency_analysis, code_analysis]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Will not run until issues resolved
+      run: |
+        echo "Deployed...Success."
+
+
+    
