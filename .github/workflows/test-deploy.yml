@@ -15,5 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Code Security Analysis
-        run: pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "p/owasp-top-ten" --error
+        run: pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "p/nodejsscan" --error
         shell: bash
