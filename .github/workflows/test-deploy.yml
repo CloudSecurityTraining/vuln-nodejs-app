@@ -17,13 +17,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Code Security Analysis
         run: |
-          pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "./.semgrep/" --error -o ~/abc/custom.txt
+          # pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "./.semgrep/" --error -o ~/abc/custom.txt
           # semgrep --max-lines-per-finding 0 --config "p/owasp-top-ten" --error -o ~/abc/ott.txt
           # semgrep --max-lines-per-finding 0 --config "p/nodejsscan" --error -o ~/abc/njsscan.txt
         shell: bash
-  upload_results:
-    name: Upload Scan Results
-    - uses: actions/upload-artifact@v3
+
+      - uses: actions/upload-artifact@v3
+      - name: Upload
         with:
           name: scan-results
           path: ~/abc/
