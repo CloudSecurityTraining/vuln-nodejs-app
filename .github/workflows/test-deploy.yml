@@ -13,14 +13,14 @@ jobs:
     runs-on:  ubuntu-latest
     name: Analyse code for security flaws
     steps:
+      - uses: actions/checkout@v2
       - name: Code Security Analysis
-        uses: actions/checkout@v2
         run: |
           # pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "./.semgrep/" --error -o ~/abc/custom.txt
           pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "p/owasp-top-ten" --error -o ott.txt
           # semgrep --max-lines-per-finding 0 --config "p/nodejsscan" --error -o ~/abc/njsscan.txt
         shell: bash
-        
+
       - name: Upload
         uses: actions/upload-artifact@v3      
         with:
