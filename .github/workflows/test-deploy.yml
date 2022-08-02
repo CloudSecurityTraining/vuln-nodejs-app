@@ -19,7 +19,7 @@ jobs:
         shell: bash
   deploy:
     name: Deploy
-    needs: [dependency_analysis, code_analysis]
+    # needs: [dependency_analysis, code_analysis]
     runs-on: ubuntu-latest
     steps:
     - name: Will not run until issues resolved
