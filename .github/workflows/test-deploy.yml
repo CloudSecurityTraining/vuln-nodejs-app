@@ -20,6 +20,8 @@ jobs:
           pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "p/owasp-top-ten" --error -o ott.txt
           # semgrep --max-lines-per-finding 0 --config "p/nodejsscan" --error -o ~/abc/njsscan.txt
         shell: bash
+        
+      - name: Upload
         uses: actions/upload-artifact@v3      
         with:
           name: scan-results
