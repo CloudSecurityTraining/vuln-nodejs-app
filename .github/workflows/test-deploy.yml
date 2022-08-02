@@ -13,20 +13,19 @@ jobs:
     runs-on:  ubuntu-latest
     name: Analyse code for security flaws
     steps:
-      - run: mkdir -p ~/abc/
       - uses: actions/checkout@v2
       - name: Code Security Analysis
         run: |
           # pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "./.semgrep/" --error -o ~/abc/custom.txt
-          pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "p/owasp-top-ten" --error -o ~/abc/ott.txt
+          pip3 install semgrep && semgrep --max-lines-per-finding 0 --config "p/owasp-top-ten" --error -o ott.txt
           # semgrep --max-lines-per-finding 0 --config "p/nodejsscan" --error -o ~/abc/njsscan.txt
         shell: bash
-
-      - uses: actions/upload-artifact@v3
+      
       - name: Upload
+        uses: actions/upload-artifact@v3      
         with:
           name: scan-results
-          path: ~/abc/
+          path: ott.txt
   deploy:
     name: Deploy
     needs: [dependency_analysis, code_analysis]
